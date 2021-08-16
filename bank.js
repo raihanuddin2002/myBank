@@ -36,12 +36,16 @@ function totalBalance(inputId) {
         // negative check
         if (inputFieldValue >= 0) {
             const currentWithdrawAmmount = document.getElementById('withdraw-ammount').innerText;
-            const totalWithdraw = parseFloat(currentWithdrawAmmount) + parseFloat(inputFieldValue);
-            // Total Withdraw Balnace
-            const newWithdrawValue = document.getElementById("withdraw-ammount").innerText = totalWithdraw;
 
-            //New Balance
-            const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) - parseFloat(inputFieldValue);
+            if (parseFloat(currentBalance) >= parseFloat(inputFieldValue)) {
+                const totalWithdraw = parseFloat(currentWithdrawAmmount) + parseFloat(inputFieldValue);
+                // Total Withdraw Balnace
+                const newWithdrawValue = document.getElementById("withdraw-ammount").innerText = totalWithdraw;
+                //New Balance
+                const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) - parseFloat(inputFieldValue);
+            } else {
+                alert('Your have not sufficient balance');
+            }
         } else {
             alert('Your value must be positive number');
         }
