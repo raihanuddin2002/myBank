@@ -11,14 +11,19 @@ function totalBalance(inputId) {
         if (inputFieldValue == "") {
             inputFieldValue = 0;
         }
-        // Deposite Calculation
-        const currentDeposite = document.getElementById('deposit-ammount').innerText;
-        const totalDeposit = parseFloat(currentDeposite) + parseFloat(inputFieldValue);
-        // Total Deposit Balnace
-        const newDepositeValue = document.getElementById("deposit-ammount").innerText = totalDeposit;
+        // negative check
+        if (inputFieldValue >= 0) {
+            // Deposite Calculation
+            const currentDeposite = document.getElementById('deposit-ammount').innerText;
+            const totalDeposit = parseFloat(currentDeposite) + parseFloat(inputFieldValue);
+            // Total Deposit Balnace
+            const newDepositeValue = document.getElementById("deposit-ammount").innerText = totalDeposit;
 
-        //New Balance
-        const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) + parseFloat(inputFieldValue);
+            //New Balance
+            const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) + parseFloat(inputFieldValue);
+        } else {
+            alert('Your value must be positive number');
+        }
 
 
         inputField.value = "";
@@ -28,13 +33,18 @@ function totalBalance(inputId) {
         if (inputFieldValue == "") {
             inputFieldValue = 0;
         }
-        const currentWithdrawAmmount = document.getElementById('withdraw-ammount').innerText;
-        const totalWithdraw = parseFloat(currentWithdrawAmmount) + parseFloat(inputFieldValue);
-        // Total Withdraw Balnace
-        const newWithdrawValue = document.getElementById("withdraw-ammount").innerText = totalWithdraw;
+        // negative check
+        if (inputFieldValue >= 0) {
+            const currentWithdrawAmmount = document.getElementById('withdraw-ammount').innerText;
+            const totalWithdraw = parseFloat(currentWithdrawAmmount) + parseFloat(inputFieldValue);
+            // Total Withdraw Balnace
+            const newWithdrawValue = document.getElementById("withdraw-ammount").innerText = totalWithdraw;
 
-        //New Balance
-        const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) - parseFloat(inputFieldValue);
+            //New Balance
+            const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) - parseFloat(inputFieldValue);
+        } else {
+            alert('Your value must be positive number');
+        }
 
         inputField.value = "";
     } else {
