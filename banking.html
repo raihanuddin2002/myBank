@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Page</title>
+    <!-- Tailwind Css link -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Css link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl text-center mt-10 italic">Let's Start <span class="text-pink-400">Banking</span></h1>
+    </header>
+    <main>
+        <!-- blank -->
+        <div class="blank" style="height: 100px"></div>
+        <!-- Balance and tranjection -->
+        <section>
+            <div class="container mx-auto">
+                <div class="row grid grid-cols-3 gap-8">
+                    <div class="col text-white bg-blue-300 p-12 rounded-md">
+                        <h2 class="balance text-5xl mb-4">
+                            Balance
+                        </h2>
+                        <h4 class="text-8xl">
+                            $<span id="balance-ammount">2500</span>
+                        </h4>
+                    </div>
+                    <div class="col text-white bg-red-300  p-12  rounded-md">
+                        <h2 class="deposit text-5xl mb-4">
+                            Deposit
+                        </h2>
+                        <h4 id="current-deposite" class="text-8xl">
+                            $<span id="deposit-ammount">10</span>
+                        </h4>
+                    </div>
+                    <div class="col  text-white bg-green-300  p-12  rounded-md">
+                        <h2 class="deposit text-5xl mb-4">
+                            Withdraw
+                        </h2>
+                        <h4 class="text-8xl">
+                            $<span id="withdraw-ammount">1267</span>
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- blank -->
+        <div class="blank" style="height: 100px"></div>
+        <!-- Deposit and withdraw -->
+        <section>
+            <div class="container mx-auto">
+                <div class="grid grid-cols-2 gap-20">
+                    <div class="deposit-system  bg-red-400 rounded-md p-16">
+                        <h2 class="text-4xl mb-5 text-green-100">Deposit</h2>
+                        <input class="px-4 py-4 rounded-lg w-3/4" type="text" name="" id="deposit-input" placeholder="Deposit Ammount"> <br>
+                        <button id="deposit-btn" class="bg-red-600 mt-4 px-8 py-4 rounded-lg text-white text-xl" type="submit">Deposit</button>
+                    </div>
+                    <div class="withdraw-system  bg-green-400 rounded-md p-16">
+                        <h2 class="text-4xl mb-5 text-red-100">Withdraw</h2>
+                        <input class="px-4 py-4 rounded-lg w-3/4" type="text" name="" id="withdraw-input" placeholder="Withdraw Ammount"> <br>
+                        <button id="withdraw-btn" class="bg-green-600 mt-4 px-8 py-4 rounded-lg text-white text-xl" type="submit">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="bank.js"></script>
+</body>
+
+</html>
