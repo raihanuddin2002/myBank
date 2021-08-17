@@ -1,4 +1,70 @@
-// handle all with one function
+// handle all with one function with organized way
+function totalBalance(inputId) {
+    let inputField = document.getElementById(inputId);
+    // Total Balanace
+    const currentBalance = document.getElementById('balance-ammount').innerText;
+    // get input field id
+    const inputFieldId = document.getElementById(inputId).getAttribute('id');
+    // get value
+    let inputFieldValue = inputField.value;
+    if (inputFieldValue == "") {
+        inputFieldValue = 0;
+    }
+    // Clear input value
+    inputField.value = "";
+
+    if (inputFieldId == "deposit-input") {
+        // negative check
+        if (inputFieldValue >= 0) {
+            // Deposite Calculation
+            const currentDeposite = document.getElementById('deposit-ammount').innerText;
+            const totalDeposit = parseFloat(currentDeposite) + parseFloat(inputFieldValue);
+            // Total Deposit Balnace
+            const newDepositeValue = document.getElementById("deposit-ammount").innerText = totalDeposit;
+
+            //New Balance
+            const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) + parseFloat(inputFieldValue);
+        } else {
+            alert('Your value must be positive number');
+        }
+    } else if (inputFieldId == "withdraw-input") {
+        // negative check
+        if (inputFieldValue >= 0) {
+            const currentWithdrawAmmount = document.getElementById('withdraw-ammount').innerText;
+
+            if (parseFloat(currentBalance) >= parseFloat(inputFieldValue)) {
+                const totalWithdraw = parseFloat(currentWithdrawAmmount) + parseFloat(inputFieldValue);
+                // Total Withdraw Balnace
+                const newWithdrawValue = document.getElementById("withdraw-ammount").innerText = totalWithdraw;
+                //New Balance
+                const newBalance = document.getElementById('balance-ammount').innerText = parseFloat(currentBalance) - parseFloat(inputFieldValue);
+            } else {
+                alert('Your have not sufficient balance');
+            }
+        } else {
+            alert('Your value must be positive number');
+        }
+    } else {
+        return 0;
+    }
+}
+
+// Deposite button
+document.getElementById('deposit-btn').addEventListener('click', function() {
+    const depositId = totalBalance("deposit-input");
+    // Total Deposit Balnace
+    // document.getElementById("deposit-ammount").innerText = depositId;
+});
+
+// Withdraw button
+document.getElementById('withdraw-btn').addEventListener('click', function() {
+    const withdrawId = totalBalance("withdraw-input");
+    // Total withdraw Balnace
+    // document.getElementById("withdraw-ammount").innerText = withdrawId;
+});
+
+/* ================================================================================================================ */
+/* // handle all with one function
 function totalBalance(inputId) {
 
     let inputField = document.getElementById(inputId);
@@ -69,7 +135,7 @@ document.getElementById('withdraw-btn').addEventListener('click', function() {
     // Total withdraw Balnace
     // document.getElementById("withdraw-ammount").innerText = withdrawId;
 });
-
+ */
 /* =================================================================================================================
     // Handle deposit button
     document.getElementById('deposit-btn').addEventListener('click', function() {
